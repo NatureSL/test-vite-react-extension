@@ -15,7 +15,7 @@ export const createInstance = async <T>({
   url: string;
   method: "get" | "post" | "put" | "delete" | "patch";
   params?: Record<string, string>;
-  header?: HeadersInit;
+  headers?: HeadersInit;
   data?: BodyType<unknown>;
   responseType?: string;
 }): Promise<T> => {
