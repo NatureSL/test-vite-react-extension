@@ -23,11 +23,12 @@ export const createInstance = async <T>({
     `${baseURL}${url}` + new URLSearchParams(params),
     {
       method: method.toUpperCase(),
+      credentials: 'include',
       ...(data ? { body: JSON.stringify(data) } : {}),
     },
   );
 
-  if (response.status.toString().startsWith("2")) {
+  if (!response.status.toString().startsWith("2")) {
     throw new ApiError(response);
   }
   return response.json();
